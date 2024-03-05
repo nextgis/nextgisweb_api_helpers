@@ -19,3 +19,7 @@ def get_raster_fragment(input_raster_path, output_raster_path, bounds):
     src_ds = None
     print("Finished")
     return output_raster_path
+
+get_raster_fragment("/vsicurl/https://demo.nextgis.ru/api/resource/5099/cog",
+               "5099_output.tiff",
+               [4183421.0468197627924383, 7498377.8124515060335398, 4183600.5441526495851576, 7498525.0406009564176202])
