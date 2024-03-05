@@ -1,0 +1,1 @@
+link = 'https://demo.nextgis.ru/resource/5099'
