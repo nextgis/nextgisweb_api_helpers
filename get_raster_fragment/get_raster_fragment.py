@@ -1,3 +1,5 @@
+from osgeo import gdal
+
 def get_raster_fragment(input_raster_path, output_raster_path, bounds):
     if not bounds or len(bounds) != 4:
         raise ValueError("Bounds must be 4 float elements")
