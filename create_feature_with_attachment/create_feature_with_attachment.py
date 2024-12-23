@@ -13,7 +13,7 @@ if __name__ == '__main__':
     feature['extensions']['description'] = None
     feature['fields'] = dict()
     feature['fields']['NAME'] = 'Sample name'
-    feature['fields']['AMENITY'] = 'Sample amenity'
+    feature['fields']['AMENITY'] = 'cafe'
     feature['geom'] = 'POINT (%s %s)' % (50,50)
 
     #create feature
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         #upload attachment to NGW
         response = requests.put(ngw_host + '/api/component/file_upload/upload', data=f, auth=auth)
         json_data = response.json()
-        json_data['filename'] = attachment_filename
+        json_data['name'] = attachment_filename
 
     attach_data = {}
     attach_data['file_upload'] = json_data
