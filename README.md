@@ -1,10 +1,15 @@
 # nextgisweb_api_helpers
-A collection of scripts showing use of NextGIS Web API.
 
-# Sandbox
+A collection of Python scripts showing use of NextGIS Web API.
 
-https://sandbox.nextgis.com
+Feel free to run.
 
-# API docs
+## Sandbox
 
-https://docs.nextgis.com/docs_ngweb_dev/doc/toc.html
+<https://sandbox.nextgis.com>
+
+## API docs
+
+HTTP API docs (swagger): <https://demo.nextgis.com/doc/api>
+
+Human docs: <https://docs.nextgis.com/docs_ngweb_dev/doc/toc.html>
