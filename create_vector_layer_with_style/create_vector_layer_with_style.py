@@ -1,4 +1,4 @@
-# Add a raster layer with style 
+# Add a vector layer with style
 # Try on sandbox.nextgis.com
 # Prerequisites: 
 # - install tusclient 'pip install tusclient'
@@ -12,10 +12,10 @@ import requests
 
 ngw_host = 'https://sandbox.nextgis.com'
 auth = ('administrator','demodemo')
-input_data = 'raster.tif'
-style_name = 'raster.qml'
-ngw_layer_name = 'raster'
-ngw_style_name = 'raster_style'
+input_data = 'settlement-point.gpkg'
+style_name = 'settlement-point.qml'
+ngw_layer_name = 'vector'
+ngw_style_name = 'vector_style'
 ngw_parent_resource = 0
 
 def upload_file(filename, ngw_host, auth):
@@ -35,11 +35,11 @@ def upload_file(filename, ngw_host, auth):
 def create_layer(upload_meta,ngw_layer_name,ngw_parent_resource):
     resource = {
         "resource": {
-            "cls": "raster_layer",
+            "cls": "vector_layer",
             "display_name": ngw_layer_name,
             "parent": {"id": ngw_parent_resource}
         },
-        "raster_layer": {
+        "vector_layer": {
             "source": upload_meta,
             "srs": {"id": 3857}
         }
@@ -48,7 +48,7 @@ def create_layer(upload_meta,ngw_layer_name,ngw_parent_resource):
     root = "%s/api/resource/" % (ngw_host)
     response = requests.post(root, json=resource, auth=auth)
     if response.status_code != 201:
-        print('Unable to create a raster layer in NGW. Status: %s' % response.text)
+        print('Unable to create a vector layer in NGW. Status: %s' % response.text)
     else:
         print(response.text)
     
@@ -57,11 +57,11 @@ def create_layer(upload_meta,ngw_layer_name,ngw_parent_resource):
 def create_style(upload_meta,style_name,ngw_parent_resource):
     resource = {
         "resource": {
-            "cls": "qgis_raster_style",
+            "cls": "qgis_vector_style",
             "display_name": style_name,
             "parent": {"id": ngw_parent_resource}
         },
-        "qgis_raster_style": {
+        "qgis_vector_style": {
             "file_upload": upload_meta
         }
      }
