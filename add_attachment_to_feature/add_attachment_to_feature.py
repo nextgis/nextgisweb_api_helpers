@@ -18,6 +18,7 @@ if __name__ == '__main__':
 
     attach_data = {}
     attach_data['file_upload'] = json_data
+    attach_data['name'] = attachment_filename
 
     #add attachment to a feature
     post_url = ngw_host + '/api/resource/' + str(vector_layer_id) +'/feature/' + str(feature_id) + '/attachment/'
