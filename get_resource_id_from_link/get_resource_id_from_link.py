@@ -4,7 +4,6 @@
 from urllib.parse import urlparse
 import re
 
-ngw_host = "https://sandbox.nextgis.com"
 resource_link = "https://sandbox.nextgis.com/resource/5/display?panel=layers"
 
 if __name__ == "__main__":
