@@ -16,6 +16,7 @@ if __name__ == "__main__":
         timeout=30,
     )
     response.raise_for_status()
+    
     data = response.json()
     resource_type = data["resource"]["cls"]
     print(resource_type)
