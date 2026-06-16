@@ -28,6 +28,8 @@ def upload_file(filename, ngw_host, auth):
         furl = uploader.url
 
         response = requests.get(furl, auth=auth, json=True)
+        response.raise_for_status()
+
         upload_meta = response.json()
 
         return upload_meta
@@ -47,6 +49,8 @@ def create_layer(upload_meta,ngw_layer_name,ngw_parent_resource):
 
     root = "%s/api/resource/" % (ngw_host)
     response = requests.post(root, json=resource, auth=auth)
+    response.raise_for_status()
+
     if response.status_code != 201:
         print('Unable to create a vector layer in NGW. Status: %s' % response.text)
     else:
@@ -68,6 +72,8 @@ def create_style(upload_meta,style_name,ngw_parent_resource):
 
     root = "%s/api/resource/" % (ngw_host)
     response = requests.post(root, json=resource, auth=auth)
+    response.raise_for_status()
+    
     if response.status_code != 201:
         print('Unable to create style at NGW. Status: %s' % response.text)
     else:
